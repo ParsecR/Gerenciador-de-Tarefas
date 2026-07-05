@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minhas Tarefas — MinhaLista</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <a href="main.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="main.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <button class="btn-nav btn-sair" id="btnSair">Sair</button>
+    </nav>
+
+
+    <!-- CABEÇALHO: saudação + filtros -->
+    <header class="tarefas-header">
+      <div class="tarefas-header-texto">
+        <h1 id="saudacao">Minhas Tarefas</h1>
+        <p class="subtitulo" id="resumo">Carregando suas tarefas...</p>
+      </div>
+
+      <div class="filtros">
+        <button class="btn-filtro filtro-ativo" data-filtro="todas">Todas</button>
+        <button class="btn-filtro" data-filtro="pendentes">Pendentes</button>
+        <button class="btn-filtro" data-filtro="concluidas">Concluídas</button>
+      </div>
+    </header>
+
+
+    <!-- =============================================
+         FORMULÁRIO DE NOVA TAREFA
+         Redesenhado: campos em duas linhas.
+         Linha 1 → nome da tarefa (largura total)
+         Linha 2 → prioridade + botão menor
+         ============================================= -->
+    <section class="nova-tarefa-secao">
+      <form id="formTarefa" class="nova-tarefa-form">
+
+        <!--
+          LINHA 1: campo de nome da tarefa
+          Label + input em coluna (empilhados).
+        -->
+        <div class="nt-linha nt-linha-nome">
+          <label for="inputTarefa" class="nt-label">Nome da tarefa</label>
+          <input
+            type="text"
+            id="inputTarefa"
+            name="inputTarefa"
+            placeholder="Ex: Estudar JavaScript por 1 hora"
+            autocomplete="off"
+            maxlength="120"
+          />
+        </div>
+
+        <!--
+          LINHA 2: prioridade + botão lado a lado
+          display: flex no CSS alinha horizontalmente.
+        -->
+        <div class="nt-linha nt-linha-acoes">
+          <div class="nt-select-wrap">
+            <label for="selectPrioridade" class="nt-label">Prioridade</label>
+            <!--
+              O <select> está DENTRO do <form>.
+              Isso é essencial: campos fora do form
+              não são enviados com o submit.
+            -->
+            <select id="selectPrioridade" name="selectPrioridade">
+              <option value="normal">🟢 Normal</option>
+              <option value="importante">🟡 Importante</option>
+              <option value="urgente">🔴 Urgente</option>
+            </select>
+          </div>
+
+          <!--
+            Botão menor: só ícone "+" + texto curto.
+            Sem padding excessivo, tamanho compacto.
+          -->
+          <button type="submit" class="btn-adicionar">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="3">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Adicionar
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+
+    <!-- LISTA DE TAREFAS -->
+    <main class="tarefas-main">
+
+      <div class="estado-vazio" id="estadoVazio">
+        <span class="estado-vazio-icone">📋</span>
+        <p>Nenhuma tarefa ainda.</p>
+        <p class="estado-vazio-dica">Use o formulário acima para adicionar sua primeira tarefa.</p>
+      </div>
+
+      <ul id="listaTarefas" class="lista-tarefas"></ul>
+
+    </main>
+
+
+    <!-- FOOTER FIXO -->
+    <footer class="tarefas-footer" id="tarefasFooter" style="display:none">
+      <span id="contadorPendentes">0 tarefas pendentes</span>
+      <button class="btn-limpar" id="btnLimparConcluidas">Limpar concluídas</button>
+    </footer>
+
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
