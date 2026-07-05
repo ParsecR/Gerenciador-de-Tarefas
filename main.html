@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MinhaLista — Organize sua vida</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <!--
+      =============================================
+      NAVBAR (barra de navegação)
+      Fica no topo de TODAS as páginas.
+      O <nav> é uma tag semântica: diz ao browser
+      que este bloco é um menu de navegação.
+      =============================================
+    -->
+    <nav class="navbar">
+
+      <!-- Logo / nome do site -->
+      <a href="main.html" class="nav-logo">
+        <!-- Ícone SVG inline: não precisa de imagem externa -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <!--
+        Links de navegação.
+        class="ativo" marca qual página está aberta —
+        o CSS vai destacar esse link visualmente.
+      -->
+      <ul class="nav-links">
+        <li><a href="home.html" class="ativo">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <!-- Botão de ação principal no canto direito -->
+      <a href="index.html" class="btn-nav">Começar grátis</a>
+
+    </nav>
+
+
+    <!--
+      =============================================
+      HERO SECTION
+      A primeira coisa que o usuário vê.
+      É o "cartão de visitas" do site.
+      =============================================
+    -->
+    <section class="hero">
+
+      <!-- Etiqueta decorativa acima do título -->
+      <span class="hero-badge">✦ Simples. Focado. Seu.</span>
+
+      <h1 class="hero-titulo">
+        Pare de esquecer.<br/>
+        <span class="destaque">Comece a fazer.</span>
+      </h1>
+
+      <p class="hero-descricao">
+        MinhaLista é um organizador de tarefas direto ao ponto.
+        Crie sua conta, adicione o que precisa fazer e acompanhe
+        cada conquista — tudo salvo no seu navegador, sem complicação.
+      </p>
+
+      <!-- Dois botões: ação primária e secundária -->
+      <div class="hero-acoes">
+        <a href="index.html" class="btn-primario">Criar minha conta</a>
+        <a href="tarefas.html" class="btn-secundario">Ver como funciona →</a>
+      </div>
+
+    </section>
+
+
+    <!--
+      =============================================
+      SEÇÃO DE FUNCIONALIDADES (Cards)
+      Explica o que o site oferece.
+      Usamos um grid de 3 colunas.
+      =============================================
+    -->
+    <section class="funcionalidades">
+
+      <h2 class="secao-titulo">Tudo que você precisa, nada que não precisa</h2>
+
+      <!--
+        O .grid-cards usa CSS Grid:
+        diferente do Flexbox (1 dimensão),
+        o Grid organiza em linhas E colunas ao mesmo tempo.
+      -->
+      <div class="grid-cards">
+
+        <div class="card-feature">
+          <div class="card-icone">📋</div>
+          <h3>Cadastro rápido</h3>
+          <p>Crie sua conta em segundos. Só precisamos do seu nome, e-mail e senha.</p>
+          <a href="index.html" class="card-link">Cadastrar →</a>
+        </div>
+
+        <div class="card-feature destaque-card">
+          <!-- class="destaque-card" deixa este card visualmente diferente -->
+          <div class="card-icone">✅</div>
+          <h3>Gerencie tarefas</h3>
+          <p>Adicione, conclua e organize suas tarefas com categorias e prioridades.</p>
+          <a href="tarefas.html" class="card-link">Ver tarefas →</a>
+        </div>
+
+        <div class="card-feature">
+          <div class="card-icone">💾</div>
+          <h3>Salvo localmente</h3>
+          <p>Seus dados ficam no seu navegador via localStorage. Privado por padrão.</p>
+          <a href="contato.html" class="card-link">Saiba mais →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!--
+      =============================================
+      SEÇÃO "COMO FUNCIONA" (passos numerados)
+      =============================================
+    -->
+    <section class="como-funciona">
+
+      <h2 class="secao-titulo">Três passos para começar</h2>
+
+      <ol class="passos">
+        <!--
+          <ol> = ordered list (lista ordenada)
+          <li> = list item (item da lista)
+        -->
+        <li class="passo">
+          <span class="passo-num">01</span>
+          <div>
+            <h3>Crie sua conta</h3>
+            <p>Preencha o formulário de cadastro com nome, e-mail e senha.</p>
+          </div>
+        </li>
+
+        <li class="passo">
+          <span class="passo-num">02</span>
+          <div>
+            <h3>Faça login</h3>
+            <p>Entre com seu e-mail e senha para acessar sua lista pessoal.</p>
+          </div>
+        </li>
+
+        <li class="passo">
+          <span class="passo-num">03</span>
+          <div>
+            <h3>Organize suas tarefas</h3>
+            <p>Adicione tarefas, marque como concluídas e acompanhe seu progresso.</p>
+          </div>
+        </li>
+      </ol>
+
+    </section>
+
+
+    <!--
+      =============================================
+      FOOTER (rodapé)
+      Aparece no final de todas as páginas.
+      =============================================
+    -->
+    <footer class="footer">
+      <p>© 2025 MinhaLista — Feito com HTML, CSS e JavaScript</p>
+      <nav class="footer-links">
+        <a href="home.html">Início</a>
+        <a href="index.html">Cadastro</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </footer>
+
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
