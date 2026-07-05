@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — MinhaLista</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <!--
+      =============================================
+      NAVBAR
+      Igual à main.html — o link "ativo" muda por JS.
+      A logo é um link para a página inicial (main.html).
+      =============================================
+    -->
+    <nav class="navbar">
+
+      <!--
+        A logo agora é um <a href="main.html">.
+        Qualquer elemento pode virar link — basta
+        envolver com <a href="...">.
+      -->
+      <a href="main.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="main.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <a href="cadastro.html" class="btn-nav">Criar conta</a>
+
+    </nav>
+
+
+    <!--
+      =============================================
+      CONTEÚDO PRINCIPAL
+      .pagina-form centraliza o card na tela.
+      Definido no CSS/style.css.
+      =============================================
+    -->
+    <main class="pagina-form">
+
+      <div class="card">
+
+        <h1>Bem-vindo de volta</h1>
+        <p class="subtitulo">Entre na sua conta para ver suas tarefas.</p>
+
+        <!--
+          FORMULÁRIO DE LOGIN
+          id="formLogin" — o script.js vai identificar
+          este formulário pelo ID e adicionar o evento.
+        -->
+        <form id="formLogin">
+
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+            <!--
+              autocomplete="email": diz ao navegador que
+              pode sugerir e-mails já usados antes.
+            -->
+          </div>
+
+          <div class="campo">
+            <label for="senha">
+              Senha
+              <!--
+                Link "Esqueci" alinhado à direita do label.
+                É um link que no futuro levaria a outra página.
+              -->
+              <a href="#" class="label-link">Esqueci minha senha</a>
+            </label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Sua senha"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <!--
+            CHECKBOX "lembrar de mim"
+            Introduz o tipo input diferente: checkbox.
+            .campo-inline usa flex em linha (não coluna).
+          -->
+          <div class="campo-inline">
+            <input type="checkbox" id="lembrar" name="lembrar" />
+            <!--
+              O label abaixo está FORA do .campo normal.
+              O "for" ainda vincula ao checkbox pelo id.
+            -->
+            <label for="lembrar" class="label-checkbox">
+              Lembrar de mim
+            </label>
+          </div>
+
+          <button type="submit">Entrar</button>
+
+        </form>
+
+        <!-- Rodapé do card: link para cadastro -->
+        <p class="rodape-form">
+          Ainda não tem conta?
+          <a href="cadastro.html">Criar conta grátis</a>
+        </p>
+
+      </div>
+
+    </main>
+
+
+    <!--
+      Caminho atualizado: JavaScript/script.js
+      O script fica no final do body — garante que
+      todo o HTML acima já foi lido pelo browser.
+    -->
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
