@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes da Tarefa — MinhaLista</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <a href="main.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="main.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <button class="btn-nav btn-sair" id="btnSair">Sair</button>
+    </nav>
+
+
+    <main class="detalhe-main">
+
+      <!--
+        BOTÃO VOLTAR
+        <a> estilizado como botão, leva de volta para tarefas.html.
+        Útil para o usuário não precisar usar o botão do navegador.
+      -->
+      <a href="tarefas.html" class="btn-voltar">
+        <!-- Seta para esquerda em SVG -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Voltar para tarefas
+      </a>
+
+
+      <!--
+        CARD DE DETALHES
+        id="detalheCard": o JS vai preencher este bloco
+        com os dados da tarefa selecionada.
+        Começa oculto — só aparece após o JS carregar os dados.
+      -->
+      <div class="detalhe-card" id="detalheCard" style="display: none">
+
+        <!-- Cabeçalho: badge de prioridade + status -->
+        <div class="detalhe-topo">
+          <!--
+            id="detalhePrioridade": o JS injeta a classe
+            de cor correta (prioridade-normal, etc.)
+          -->
+          <span class="tarefa-prioridade" id="detalhePrioridade"></span>
+          <span class="detalhe-status" id="detalheStatus"></span>
+        </div>
+
+        <!-- Título da tarefa -->
+        <h1 class="detalhe-titulo" id="detalheTitulo"></h1>
+
+        <!-- Meta-informações em linha -->
+        <div class="detalhe-meta">
+          <span class="meta-item">
+            <!-- Ícone calendário -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Criada em <strong id="detalheCriadaEm"></strong>
+          </span>
+
+          <span class="meta-item">
+            <!-- Ícone ID -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            ID: <strong id="detalheId"></strong>
+          </span>
+        </div>
+
+        <!-- Separador visual -->
+        <hr class="detalhe-divisor" />
+
+        <!--
+          SEÇÃO DE ANOTAÇÕES
+          Campo de texto livre para o usuário escrever mais sobre a tarefa.
+          O conteúdo é salvo no localStorage junto com a tarefa.
+        -->
+        <div class="detalhe-secao">
+          <label for="detalheAnotacoes" class="detalhe-secao-titulo">
+            <!-- Ícone lápis -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Anotações
+          </label>
+          <!--
+            <textarea>: campo de texto de múltiplas linhas.
+            rows="5" define a altura inicial visível.
+            resize: vertical no CSS permite redimensionar só verticalmente.
+          -->
+          <textarea
+            id="detalheAnotacoes"
+            rows="5"
+            placeholder="Adicione detalhes, links, observações..."
+          ></textarea>
+        </div>
+
+
+        <!-- AÇÕES: botões de concluir e deletar -->
+        <div class="detalhe-acoes">
+
+          <!--
+            Botão de concluir/reabrir.
+            O JS troca o texto e a aparência conforme o estado.
+          -->
+          <button class="btn-concluir" id="btnConcluir">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Marcar como concluída
+          </button>
+
+          <!-- Botão salvar anotações -->
+          <button class="btn-salvar-notas" id="btnSalvarNotas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Salvar anotações
+          </button>
+
+          <!-- Botão deletar — separado visualmente pois é destrutivo -->
+          <button class="btn-deletar-detalhe" id="btnDeletarDetalhe">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6l-1 14H6L5 6"/>
+              <path d="M10 11v6M14 11v6"/>
+            </svg>
+            Deletar tarefa
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!--
+        ESTADO DE ERRO
+        Mostrado quando nenhuma tarefa foi encontrada.
+        Começa oculto — o JS exibe se necessário.
+      -->
+      <div class="detalhe-erro" id="detalheErro" style="display: none">
+        <span class="estado-vazio-icone">🔍</span>
+        <p>Tarefa não encontrada.</p>
+        <a href="tarefas.html" class="btn-primario" style="margin-top: 16px; display: inline-block">
+          Ver todas as tarefas
+        </a>
+      </div>
+
+    </main>
+
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
