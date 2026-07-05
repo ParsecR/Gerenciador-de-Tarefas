@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cadastro — MinhaLista</title>
+
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+
+      <!--
+        A logo agora é um <a href="main.html">.
+        Qualquer elemento pode virar link — basta
+        envolver com <a href="...">.
+      -->
+      <a href="main.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="main.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <a href="cadastro.html" class="btn-nav">Criar conta</a>
+
+    </nav>
+
+    <main class="card">
+      <h1>Criar conta</h1>
+
+      <p class="subtitulo">Organize suas tarefas com estilo.</p>
+
+      <form id="formCadastro">
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Ex: João Silva"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="joao@email.com"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Mínimo 6 caracteres"
+            minlength="6"
+            required
+          />
+        </div>
+        
+        <div class="campo">
+            <label for="confirmar-senha">Confirmar Senha</label>
+            <input 
+                type="password" 
+                id="confirmar-senha"
+                name="confirmar-senha"
+                placeholder="Confirme sua Senha"
+                minlength="6"
+                required
+            />
+        </div>
+
+        <button type="submit">Criar minha conta</button>
+      </form>
+
+      <p class="rodape-form">
+        Já tem conta?
+        <a href="login.html">Faça login</a>
+      </p>
+    </main>
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
