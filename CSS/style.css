@@ -1,0 +1,1536 @@
+/* =============================================
+   VARIÁVEIS GLOBAIS (Custom Properties)
+   Definidas em :root = disponíveis em TODO o CSS.
+   Mude uma variável e muda em todo o site.
+   ============================================= */
+:root {
+  --cor-fundo: #080810;
+  --cor-superficie: #10101e;
+  --cor-card: #14142a;
+  --cor-borda: #1e1e38;
+  --cor-primaria: #6c63ff;
+  --cor-primaria-brilho: #8b83ff;
+  --cor-acento: #ff6b9d;
+  --cor-texto: #e8e8f4;
+  --cor-texto-suave: #7070a0;
+  --cor-texto-muted: #40405a;
+
+  --fonte-display: 'Georgia', serif;
+  --fonte-corpo: 'Segoe UI', system-ui, sans-serif;
+
+  --raio: 12px;
+  --raio-grande: 20px;
+  --sombra: 0 4px 32px rgba(108, 99, 255, 0.12);
+  --transicao: 0.22s ease;
+
+  --largura-max: 1000px;
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 0 32px;
+  height: 64px;
+
+  background: rgba(8, 8, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--cor-texto);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  transition: opacity var(--transicao);
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+.nav-logo svg {
+  color: var(--cor-primaria);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  transition: color var(--transicao), background var(--transicao);
+}
+
+.nav-links a:hover {
+  color: var(--cor-texto);
+  background: var(--cor-borda);
+}
+
+.nav-links a.ativo {
+  color: var(--cor-texto);
+  background: var(--cor-card);
+  font-weight: 600;
+}
+
+.btn-nav {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  background: var(--cor-primaria);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn-nav:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   HERO SECTION (main.html)
+   ============================================= */
+.hero {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 96px 32px 80px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+}
+
+.hero-titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: var(--cor-texto);
+}
+
+.destaque {
+  color: var(--cor-primaria);
+}
+
+.hero-descricao {
+  max-width: 520px;
+  margin: 0 auto 40px;
+  color: var(--cor-texto-suave);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primario {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--cor-primaria);
+  color: white;
+  border-radius: var(--raio);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn-primario:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  transition: border-color var(--transicao), color var(--transicao);
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto);
+}
+
+/* =============================================
+   SEÇÃO DE FUNCIONALIDADES (main.html)
+   ============================================= */
+.funcionalidades {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 64px 32px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.secao-titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--cor-texto);
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card-feature {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+
+.card-feature:hover {
+  border-color: var(--cor-primaria);
+  transform: translateY(-4px);
+}
+
+.destaque-card {
+  background: linear-gradient(135deg, #16163a, #1a1040);
+  border-color: var(--cor-primaria);
+  box-shadow: var(--sombra);
+}
+
+.card-icone {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.card-feature h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.card-feature p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  transition: color var(--transicao);
+}
+
+.card-link:hover {
+  color: var(--cor-primaria-brilho);
+}
+
+/* =============================================
+   SEÇÃO "COMO FUNCIONA" (main.html)
+   ============================================= */
+.como-funciona {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 64px 32px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.passos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.passo {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.passo:last-child {
+  border-bottom: none;
+}
+
+.passo-num {
+  font-family: var(--fonte-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+  padding-top: 2px;
+}
+
+.passo h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.passo p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  border-top: 1px solid var(--cor-borda);
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: var(--cor-texto-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--cor-texto-muted);
+  transition: color var(--transicao);
+}
+
+.footer-links a:hover {
+  color: var(--cor-texto);
+}
+
+/* =============================================
+   PÁGINAS DE FORMULÁRIO (cadastro, login)
+   .pagina-form centraliza o card na tela
+   ============================================= */
+.pagina-form {
+  min-height: calc(100vh - 64px); /* desconta a altura da navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Card branco/escuro central */
+.card {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------
+   LOGO DENTRO DO CARD (login.html)
+   Clicável, leva ao main.html.
+   Fica acima do h1 como identificação visual.
+----------------------------------------------- */
+.card-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  margin-bottom: 24px;
+  width: fit-content;         /* ocupa só o espaço do conteúdo */
+  transition: opacity var(--transicao);
+}
+
+.card-logo:hover {
+  opacity: 0.75;              /* feedback visual ao passar o mouse */
+}
+
+.card-logo svg {
+  color: var(--cor-primaria);
+}
+
+/* Título do card */
+.card h1 {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: var(--cor-texto-suave);
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+}
+
+/* Bloco label + input empilhados */
+.campo {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Label com link "Esqueci minha senha" ao lado */
+.campo label {
+  display: flex;
+  justify-content: space-between;  /* label à esquerda, link à direita */
+  align-items: center;
+}
+
+label {
+  font-size: 0.82rem;
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Link pequeno dentro do label (ex: "Esqueci minha senha") */
+.label-link {
+  font-size: 0.8rem;
+  color: var(--cor-primaria);
+  font-weight: 500;
+  text-transform: none;       /* cancela o uppercase do label pai */
+  letter-spacing: 0;
+  transition: color var(--transicao);
+}
+
+.label-link:hover {
+  color: var(--cor-primaria-brilho);
+}
+
+input {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  font-family: var(--fonte-corpo);
+  transition: border-color var(--transicao);
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+input::placeholder {
+  color: var(--cor-texto-muted);
+}
+
+/* -----------------------------------------------
+   CAMPO INLINE: checkbox + label lado a lado
+----------------------------------------------- */
+.campo-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+/* Estilo do checkbox */
+.campo-inline input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--cor-primaria);
+  /*
+    accent-color: muda a cor do checkbox/radio nativo.
+    Suporte moderno — funciona em Chrome, Firefox, Safari.
+  */
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Label do checkbox: sem uppercase, tamanho normal */
+.label-checkbox {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+/* Botão principal do formulário */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background var(--transicao), transform var(--transicao);
+  font-family: var(--fonte-corpo);
+}
+
+button[type="submit"]:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-1px);
+}
+
+/* Texto com link no rodapé do card */
+.rodape-form {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.rodape-form a {
+  color: var(--cor-primaria);
+  font-weight: 600;
+  transition: color var(--transicao);
+}
+
+.rodape-form a:hover {
+  color: var(--cor-primaria-brilho);
+}
+
+/* =============================================
+   RESPONSIVO
+   ============================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 64px 20px 56px;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .funcionalidades,
+  .como-funciona {
+    padding: 48px 20px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+}
+
+/* =============================================
+   PÁGINA DE TAREFAS (tarefas.html)
+   ============================================= */
+
+/* --- Cabeçalho com saudação e filtros --- */
+.tarefas-header {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 48px 32px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tarefas-header h1 {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+/* --- Filtros (Todas / Pendentes / Concluídas) --- */
+.filtros {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-filtro {
+  padding: 7px 16px;
+  border-radius: 999px;        /* pílula */
+  border: 1px solid var(--cor-borda);
+  background: transparent;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-filtro:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto);
+}
+
+/* Filtro ativo: fundo preenchido */
+.btn-filtro.filtro-ativo {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: white;
+  font-weight: 600;
+}
+
+/* --- Formulário de nova tarefa (2 linhas) --- */
+.nova-tarefa-secao {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 32px 32px;
+}
+
+.nova-tarefa-form {
+  display: flex;
+  flex-direction: column;      /* empilha as duas linhas */
+  gap: 12px;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 20px 24px;
+  transition: border-color var(--transicao);
+}
+
+.nova-tarefa-form:focus-within {
+  border-color: var(--cor-primaria);
+}
+
+/* Rótulo interno do formulário */
+.nt-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+}
+
+/* Linha 1: campo de nome (ocupa toda a largura) */
+.nt-linha-nome input[type="text"] {
+  width: 100%;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  transition: border-color var(--transicao);
+}
+
+.nt-linha-nome input[type="text"]:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.nt-linha-nome input[type="text"]::placeholder {
+  color: var(--cor-texto-muted);
+}
+
+/*
+  Linha 2: select à esquerda (tamanho natural) + botão fixo à direita.
+  justify-content: space-between empurra o botão pro canto direito.
+*/
+.nt-linha-acoes {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* O select-wrap NÃO cresce — ocupa só o espaço necessário */
+.nt-select-wrap {
+  flex-shrink: 0;              /* não encolhe */
+  /* sem flex: 1 — o select fica com o tamanho do conteúdo */
+}
+
+.nt-select-wrap select {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: border-color var(--transicao);
+  /* width: auto = só o espaço que o conteúdo precisa */
+}
+
+.nt-select-wrap select:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+/* Botão "Adicionar" — pequeno, fixo à direita */
+.btn-adicionar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn-adicionar:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-1px);
+}
+
+/* --- Área principal da lista --- */
+.tarefas-main {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 32px 120px;      /* 120px de espaço no fundo pro footer */
+}
+
+/* Estado vazio: exibido quando não há tarefas */
+.estado-vazio {
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--cor-texto-muted);
+}
+
+.estado-vazio-icone {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.estado-vazio p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.estado-vazio-dica {
+  font-size: 0.875rem !important;
+  color: var(--cor-texto-muted);
+}
+
+/* Lista de tarefas */
+.lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Item individual da lista */
+.tarefa-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  transition: border-color var(--transicao), opacity var(--transicao),
+              transform var(--transicao);
+  /*
+    Animação de entrada: definida em @keyframes abaixo.
+    animation: nome duração timing-function
+  */
+  animation: entrar 0.25s ease;
+}
+
+/* Animação de slide-in ao adicionar tarefa */
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarefa-item:hover {
+  border-color: var(--cor-borda);
+  transform: translateX(2px);
+}
+
+/* Estado concluído: texto riscado e opacidade reduzida */
+.tarefa-item.concluida {
+  opacity: 0.5;
+}
+
+.tarefa-item.concluida .tarefa-texto {
+  text-decoration: line-through;
+  color: var(--cor-texto-muted);
+}
+
+/* Checkbox customizado — clicável para concluir */
+.tarefa-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;          /* círculo */
+  border: 2px solid var(--cor-borda);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transicao);
+  font-size: 13px;
+  color: white;
+}
+
+/* Hover: mostra um "v" fantasma antes de clicar */
+.tarefa-check:hover {
+  border-color: var(--cor-primaria);
+  background: rgba(108, 99, 255, 0.15);
+}
+
+/* Estado concluído: círculo preenchido com ✓ */
+.tarefa-item.concluida .tarefa-check {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+/* Texto da tarefa — ocupa o máximo de espaço */
+.tarefa-texto {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  line-height: 1.4;
+}
+
+/* Badge de prioridade */
+.tarefa-prioridade {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Cores por nível de prioridade */
+.prioridade-normal {
+  background: rgba(112, 112, 160, 0.15);
+  color: var(--cor-texto-suave);
+}
+
+.prioridade-importante {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;             /* amarelo */
+}
+
+.prioridade-urgente {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;             /* vermelho */
+}
+
+/* Botão de detalhes (leva para detalhes.html) */
+.btn-detalhes {
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  padding: 5px 10px;
+  color: var(--cor-texto-suave);
+  font-size: 0.78rem;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: all var(--transicao);
+  flex-shrink: 0;
+}
+
+.btn-detalhes:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+/* Botão deletar tarefa */
+.btn-deletar {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transicao), background var(--transicao);
+  flex-shrink: 0;
+}
+
+.btn-deletar:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* --- Footer fixo com contador --- */
+.tarefas-footer {
+  position: fixed;            /* fica fixo no fundo da tela */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(8, 8, 16, 0.9);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--cor-borda);
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Botão de limpar tarefas concluídas */
+.btn-limpar {
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 7px 14px;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-limpar:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Botão de sair na navbar */
+.btn-sair {
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-sair:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Responsivo para tarefas */
+@media (max-width: 768px) {
+  .tarefas-header {
+    padding: 32px 20px 20px;
+    flex-direction: column;
+  }
+
+  .nova-tarefa-secao {
+    padding: 0 20px 24px;
+  }
+
+  .nova-tarefa-form {
+    padding: 16px;
+  }
+
+  .nt-linha-acoes {
+    flex-wrap: wrap;
+  }
+
+  .tarefas-main {
+    padding: 0 20px 100px;
+  }
+
+  .tarefas-footer {
+    padding: 14px 20px;
+  }
+}
+
+/* =============================================
+   PÁGINA DE DETALHES (detalhes.html)
+   ============================================= */
+
+.detalhe-main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* Botão voltar — link estilizado como botão ghost */
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 28px;
+  padding: 6px 12px 6px 8px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  transition: all var(--transicao);
+}
+
+.btn-voltar:hover {
+  color: var(--cor-texto);
+  border-color: var(--cor-primaria);
+}
+
+/* Card principal de detalhes */
+.detalhe-card {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Topo: badge de prioridade + status lado a lado */
+.detalhe-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Badge de status (Pendente / Concluída) */
+.detalhe-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(112, 112, 160, 0.12);
+  color: var(--cor-texto-suave);
+}
+
+/* Quando concluída, o status fica verde */
+.detalhe-status.status-concluida {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+/* Título da tarefa */
+.detalhe-titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--cor-texto);
+}
+
+/* Linha de meta-dados (data + ID) */
+.detalhe-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--cor-texto-muted);
+}
+
+.meta-item svg {
+  flex-shrink: 0;
+}
+
+.meta-item strong {
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+/* Linha divisória */
+.detalhe-divisor {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* Seção com título interno (ex: Anotações) */
+.detalhe-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detalhe-secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* Textarea de anotações */
+textarea {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--cor-texto);
+  font-size: 0.9rem;
+  font-family: var(--fonte-corpo);
+  line-height: 1.6;
+  resize: vertical;            /* usuário pode redimensionar só na vertical */
+  min-height: 120px;
+  transition: border-color var(--transicao);
+  width: 100%;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+textarea::placeholder {
+  color: var(--cor-texto-muted);
+}
+
+/* Linha de ações */
+.detalhe-acoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+/* Botão concluir */
+.btn-concluir {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn-concluir:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-1px);
+}
+
+/* Estado: quando a tarefa já está concluída */
+.btn-concluir.ja-concluida {
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+}
+
+.btn-concluir.ja-concluida:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+  transform: none;
+}
+
+/* Botão salvar anotações */
+.btn-salvar-notas {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-salvar-notas:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+/* Botão deletar — destrutivo, fica à direita com margin auto */
+.btn-deletar-detalhe {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-muted);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  margin-left: auto;           /* empurra para o extremo direito */
+  transition: all var(--transicao);
+}
+
+.btn-deletar-detalhe:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* Estado de erro (tarefa não encontrada) */
+.detalhe-erro {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--cor-texto-muted);
+}
+
+/* Responsivo para detalhes */
+@media (max-width: 768px) {
+  .detalhe-main {
+    padding: 24px 20px 60px;
+  }
+
+  .detalhe-card {
+    padding: 24px 20px;
+  }
+
+  .detalhe-acoes {
+    flex-direction: column;
+  }
+
+  .btn-deletar-detalhe {
+    margin-left: 0;
+  }
+}
+
+/* =============================================
+   PÁGINA DE CONTATO (contato.html)
+   ============================================= */
+
+.contato-main {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+}
+
+/* Cabeçalho */
+.contato-header {
+  margin-bottom: 40px;
+}
+
+.contato-titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.contato-header .subtitulo {
+  margin-bottom: 0;
+}
+
+/*
+  Grid de duas colunas:
+  formulário ocupa 3 partes, aside ocupa 2.
+  "3fr 2fr" = proporção entre as colunas.
+*/
+.contato-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 28px;
+  align-items: start;          /* cada coluna começa no topo */
+}
+
+/* Card do formulário */
+.contato-card {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 36px;
+}
+
+/* Dois campos lado a lado */
+.contato-linha-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Select dentro do formulário de contato */
+.contato-card select {
+  width: 100%;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--cor-texto-suave);
+  font-size: 1rem;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  transition: border-color var(--transicao);
+}
+
+.contato-card select:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+/* Botão enviar */
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: var(--fonte-corpo);
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn-enviar:hover {
+  background: var(--cor-primaria-brilho);
+  transform: translateY(-1px);
+}
+
+/* Alerta de sucesso */
+.alerta-sucesso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: #22c55e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* Coluna de informações */
+.contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-grande);
+  padding: 32px;
+}
+
+/* Bloco de informação: ícone + texto */
+.info-bloco {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Círculo com ícone */
+.info-icone {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(108, 99, 255, 0.1);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.info-titulo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.info-valor {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+/* FAQ */
+.info-faq-titulo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/*
+  <details>: elemento nativo expansível.
+  O browser alterna open/closed automaticamente.
+*/
+.faq-item {
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 2px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/*
+  <summary>: o título clicável do <details>.
+  cursor: pointer indica que é clicável.
+  list-style: none remove o triângulo padrão.
+*/
+.faq-item summary {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  padding: 10px 0;
+  list-style: none;            /* remove o ▶ padrão do browser */
+  transition: color var(--transicao);
+}
+
+.faq-item summary:hover {
+  color: var(--cor-texto);
+}
+
+/* Conteúdo expandido do FAQ */
+.faq-item p {
+  font-size: 0.85rem;
+  color: var(--cor-texto-muted);
+  padding-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Responsivo para contato */
+@media (max-width: 768px) {
+  .contato-main {
+    padding: 36px 20px 60px;
+  }
+
+  /* Em mobile: uma coluna só */
+  .contato-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-card {
+    padding: 24px 20px;
+  }
+
+  .contato-linha-dupla {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-info {
+    padding: 24px 20px;
+  }
+}
