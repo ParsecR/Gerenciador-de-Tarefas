@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato — MinhaLista</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <a href="main.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        MinhaLista
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="main.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="tarefas.html">Tarefas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <a href="cadastro.html" class="btn-nav">Criar conta</a>
+    </nav>
+
+
+    <main class="contato-main">
+
+      <!-- CABEÇALHO DA PÁGINA -->
+      <div class="contato-header">
+        <h1 class="contato-titulo">Fale com a gente</h1>
+        <p class="subtitulo">
+          Dúvidas, sugestões ou problemas? Preencha o formulário
+          e responderemos em até 24 horas.
+        </p>
+      </div>
+
+
+      <!-- GRID: formulário à esquerda, informações à direita -->
+      <div class="contato-grid">
+
+        <!-- =============================================
+             FORMULÁRIO DE CONTATO
+             id="formContato" — o JS processa o envio.
+             ============================================= -->
+        <div class="contato-card">
+
+          <!--
+            Alerta de sucesso: oculto por padrão.
+            O JS exibe após o "envio" do formulário.
+          -->
+          <div class="alerta-sucesso" id="alertaSucesso" style="display: none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Mensagem enviada! Entraremos em contato em breve.
+          </div>
+
+          <form id="formContato">
+
+            <!-- Linha com dois campos lado a lado -->
+            <div class="contato-linha-dupla">
+              <div class="campo">
+                <label for="contatoNome">Nome</label>
+                <input
+                  type="text"
+                  id="contatoNome"
+                  placeholder="Seu nome"
+                  required
+                />
+              </div>
+
+              <div class="campo">
+                <label for="contatoEmail">E-mail</label>
+                <input
+                  type="email"
+                  id="contatoEmail"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="contatoAssunto">Assunto</label>
+              <!--
+                <select> com categorias de assunto.
+                Ajuda a organizar os chamados recebidos.
+              -->
+              <select id="contatoAssunto">
+                <option value="">Selecione um assunto...</option>
+                <option value="duvida">Dúvida geral</option>
+                <option value="bug">Reportar um problema</option>
+                <option value="sugestao">Sugestão de melhoria</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="contatoMensagem">Mensagem</label>
+              <textarea
+                id="contatoMensagem"
+                rows="5"
+                placeholder="Descreva sua dúvida ou sugestão com detalhes..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              Enviar mensagem
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <!-- =============================================
+             COLUNA DE INFORMAÇÕES
+             Dados de contato e links úteis.
+             ============================================= -->
+        <aside class="contato-info">
+
+          <!-- Cada bloco de informação -->
+          <div class="info-bloco">
+            <div class="info-icone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <p class="info-titulo">E-mail</p>
+              <p class="info-valor">contato@minhalista.com</p>
+            </div>
+          </div>
+
+          <div class="info-bloco">
+            <div class="info-icone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="info-titulo">Horário de atendimento</p>
+              <p class="info-valor">Seg – Sex, 9h às 18h</p>
+            </div>
+          </div>
+
+          <div class="info-bloco">
+            <div class="info-icone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <p class="info-titulo">Localização</p>
+              <p class="info-valor">Curitiba, PR — Brasil</p>
+            </div>
+          </div>
+
+          <!-- Divisor -->
+          <hr class="detalhe-divisor" />
+
+          <!-- FAQ rápido -->
+          <p class="info-faq-titulo">Perguntas frequentes</p>
+
+          <!--
+            <details> + <summary>: elemento nativo do HTML para
+            conteúdo expansível (accordion).
+            Não precisa de JavaScript — o browser faz tudo.
+          -->
+          <details class="faq-item">
+            <summary>Meus dados são seguros?</summary>
+            <p>
+              Todos os dados ficam salvos localmente no seu navegador
+              via localStorage. Nada é enviado para servidores externos.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Posso usar no celular?</summary>
+            <p>
+              Sim! O MinhaLista é responsivo e funciona bem em
+              qualquer tamanho de tela.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Como recuperar minha senha?</summary>
+            <p>
+              Como os dados são locais, não há recuperação automática.
+              Se esqueceu a senha, entre em contato conosco.
+            </p>
+          </details>
+
+        </aside>
+
+      </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2025 MinhaLista — Feito com HTML, CSS e JavaScript</p>
+      <nav class="footer-links">
+        <a href="main.html">Início</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </footer>
+
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>
