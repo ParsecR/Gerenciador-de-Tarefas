@@ -142,7 +142,7 @@ ul, ol {
 }
 
 /* =============================================
-   HERO SECTION (main.html)
+   HERO SECTION (index.html)
    ============================================= */
 .hero {
   max-width: var(--largura-max);
@@ -224,7 +224,7 @@ ul, ol {
 }
 
 /* =============================================
-   SEÇÃO DE FUNCIONALIDADES (main.html)
+   SEÇÃO DE FUNCIONALIDADES (index.html)
    ============================================= */
 .funcionalidades {
   max-width: var(--largura-max);
@@ -301,7 +301,7 @@ ul, ol {
 }
 
 /* =============================================
-   SEÇÃO "COMO FUNCIONA" (main.html)
+   SEÇÃO "COMO FUNCIONA" (index.html)
    ============================================= */
 .como-funciona {
   max-width: var(--largura-max);
@@ -410,7 +410,7 @@ ul, ol {
 
 /* -----------------------------------------------
    LOGO DENTRO DO CARD (login.html)
-   Clicável, leva ao main.html.
+   Clicável, leva ao index.html.
    Fica acima do h1 como identificação visual.
 ----------------------------------------------- */
 .card-logo {
